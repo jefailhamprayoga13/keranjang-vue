@@ -10,7 +10,7 @@ export default {
   },
   data() {
     return {
-      items: [{ name: "Headphone", harga: 200000, stok: 25, deskripsi: "Barang murah sangat terjangkau dan sangat berkualitas", img:"../src/assets/img/headshet.png" },
+      items: [{ name: "Headphone", harga: 200000, stok: 25, deskripsi: "Barang murah sangat terjangkau dan sangat berkualitas", img: "../src/assets/img/headshet.png" },
       { name: "Televisi", harga: 2000000, stok: 15, deskripsi: "Barang murah sangat terjangkau dan sangat berkualitas", img: "../src/assets/img/tv.png" },
       { name: "Kulkas", harga: 1500000, stok: 10, deskripsi: "Barang murah sangat terjangkau dan sangat berkualitas", img: "../src/assets/img/kulkas.png" },
       { name: "Laptop", harga: 7500000, stok: 5, deskripsi: "Barang murah sangat terjangkau dan sangat berkualitas", img: "../src/assets/img/laptop.png" }],
@@ -19,19 +19,26 @@ export default {
     };
   },
 
-    mounted() {
+  mounted() {
     const storedCart = localStorage.getItem('cart');
     if (storedCart) {
       this.cart = JSON.parse(storedCart);
     }
   },
-  
+
   methods: {
     addCart(item) {
-      this.cart = [...this.cart, item];
+      const existingItemIndex = this.cart.findIndex(cartItem => cartItem.name === item.name);
+      if (existingItemIndex > -1) {
+        this.cart[existingItemIndex].quantity++;
+      } else {
+        this.cart.push({ ...item, quantity: 1 });
+      }
       localStorage.setItem('cart', JSON.stringify(this.cart));
+      
     },
   },
+
 
 };
 </script>
@@ -49,5 +56,4 @@ export default {
     </div>
   </div>
 </template>
-
 
