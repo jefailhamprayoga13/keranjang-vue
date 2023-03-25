@@ -1,46 +1,43 @@
 <template>
-    <div class="row card-items">
-        <h2>Daftar Barang</h2>
-        <div class="card col-5 me-2 mt-2 " v-for="(item,index) in items" :key="index">
-                <div class="card-body">
-                    <h5 class="card-title">{{ item.name }}</h5>
-                    <p class="card-text">{{ item.harga }}</p>
-                    <p class="card-text">{{ item.deskripsi }}</p>
-                    <button class="btn btn-primary" @click="addCart(index)">+ Keranjang</button>
-                </div>
+    <h2 class="text-2xl font-bold text-center">Daftar Barang</h2>
+    <div class="p-5 rounded-lg bg-white shadow-lg m-2 flex" v-for="(item, index) in items" :key="index">
+        <div class="text-lg ">
+            <img :src="item.img">
+            <h5>{{ item.name }}</h5>
+            <p class="font-bold">Rp.{{ item.harga }}</p>
+            <p>{{ item.deskripsi }}</p>
+            <button class="bg-green-600 text-white rounded-lg px-2 py-3 shadow-lg" @click="addCart(index)">+ Keranjang</button>
         </div>
     </div>
 </template>
 
 <script>
-    export default{
-        name: 'Items',
-        props: ['items', 'cart'],
-        data(){
-            return{
-                cart : [],
-            };
-        },
+export default {
+    name: 'Items',
+    props: ['items', 'cart'],
+    data() {
+        return {
+            cart: [],
+        };
+    },
 
-        mounted() {
+    mounted() {
         const storedCart = localStorage.getItem('cart');
         if (storedCart) {
             this.cart = JSON.parse(storedCart);
         }
     },
 
-        methods : {
-            addCart(index){
-                const item = this.items[index];
-                this.$emit('add-cart', item);
-            },
-
-            
-            
+    methods: {
+        addCart(index) {
+            const item = this.items[index];
+            this.$emit('add-cart', item);
         },
-    };
+
+
+
+    },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
