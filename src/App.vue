@@ -1,6 +1,7 @@
 <script>
 import Items from "./components/Items.vue"
 import Cart from "./components/Cart.vue"
+import Swal from 'sweetalert2';
 
 export default {
   name: 'App',
@@ -35,7 +36,12 @@ export default {
         this.cart.push({ ...item, quantity: 1 });
       }
       localStorage.setItem('cart', JSON.stringify(this.cart));
-      
+      Swal.fire({
+        icon: 'success',
+        title: 'Barang berhasil ditambahkan ke keranjang',
+        showConfirmButton: false,
+        timer: 1500
+      });
     },
   },
 
@@ -44,13 +50,14 @@ export default {
 </script>
 
 <template>
-  <div class="p-10 max-w-md mx-auto my-20 min-w-fit  bg-white rounded-xl shadow-lg  font-serif">
-    <h1 class="text-center my-10 text-3xl font-bold">Sistem Keranjang Sederhana</h1>
+  <div class="p-10 max-w-md mx-auto bg-orange-200 my-20 min-w-fit rounded-xl shadow-lg ">
+    <img src="./assets/img/cart.png" class=" mt-10 mx-auto block" alt="cart.png">
+    <h1 class="text-center text-3xl mb-10 text-slate-700 font-bold ">Sistem Keranjang Sederhana</h1>
     <div class="md:flex ">
-      <div class="p-5 m-2 bg-white rounded-xl shadow-lg items-center">
+      <div class="p-5 m-2 bg-orange-300 rounded-xl shadow-lg items-center">
         <Items :items="items" :cart="cart" @add-cart="addCart" />
       </div>
-      <div class="p-5 m-2 bg-white rounded-xl shadow-lg items-center ">
+      <div class="p-5 m-2 bg-orange-300 rounded-xl shadow-lg items-center ">
         <Cart :cart="cart" @add-cart="addCart" />
       </div>
     </div>
