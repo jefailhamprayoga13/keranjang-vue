@@ -52,7 +52,7 @@ export default {
 <template>
   <div class="p-10 max-w-md mx-auto bg-orange-200 my-20 min-w-fit rounded-xl shadow-lg ">
     <img src="./assets/img/cart.png" class=" mt-10 mx-auto block" alt="cart.png">
-    <h1 class="text-center text-3xl mb-10 text-slate-700 font-bold ">Sistem Keranjang Sederhana</h1>
+    <h1 class="text-center text-3xl mb-10 text-slate-800 font-bold ">Sistem Keranjang Sederhana</h1>
     <div class="md:flex ">
       <div class="p-5 m-2 bg-orange-300 rounded-xl shadow-lg items-center">
         <Items :items="items" :cart="cart" @add-cart="addCart" />
