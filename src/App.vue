@@ -11,13 +11,13 @@ export default {
   },
   data() {
     return {
-      items: [{ name: "Headphone", harga: 200000, stok: 25, deskripsi: "Barang murah sangat terjangkau dan sangat berkualitas", img: "../../public/assets/img/headshet.png" },
-      { name: "Televisi", harga: 2000000, stok: 15, deskripsi: "Barang murah sangat terjangkau dan sangat berkualitas", img: "../../public/assets/img/tv.png" },
-      { name: "Kulkas", harga: 1500000, stok: 10, deskripsi: "Barang murah sangat terjangkau dan sangat berkualitas", img: "../../public/assets/img/kulkas.png" },
-      { name: "Laptop", harga: 7500000, stok: 5, deskripsi: "Barang murah sangat terjangkau dan sangat berkualitas", img: "../../public/assets/img/laptop.png" }],
+      items: [{ name: "Headphone", harga: 200000, stok: 25, deskripsi: "Barang murah sangat terjangkau dan sangat berkualitas", img: "../assets/img/headshet.png" },
+      { name: "Televisi", harga: 2000000, stok: 15, deskripsi: "Barang murah sangat terjangkau dan sangat berkualitas", img: "../assets/img/tv.png" },
+      { name: "Kulkas", harga: 1500000, stok: 10, deskripsi: "Barang murah sangat terjangkau dan sangat berkualitas", img: "../assets/img/kulkas.png" },
+      { name: "Laptop", harga: 7500000, stok: 5, deskripsi: "Barang murah sangat terjangkau dan sangat berkualitas", img: "../assets/img/laptop.png" }],
 
       cart: [],
-      img : "../dist/assets/img/cart.png"
+      img : "../public/assets/img/cart.png"
     };
   },
 
