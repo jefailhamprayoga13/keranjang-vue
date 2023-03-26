@@ -17,7 +17,7 @@ export default {
       { name: "Laptop", harga: 7500000, stok: 5, deskripsi: "Barang murah sangat terjangkau dan sangat berkualitas", img: "../../public/assets/img/laptop.png" }],
 
       cart: [],
-      img : "../public/assets/img/cart.png"
+      img : "../dist/assets/img/cart.png"
     };
   },
 
